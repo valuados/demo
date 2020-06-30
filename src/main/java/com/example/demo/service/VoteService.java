@@ -7,9 +7,7 @@ import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class VoteService {
@@ -22,5 +20,13 @@ public class VoteService {
 
     public List<PersonDTO> getList(){
         return persons;
+    }
+
+    public Map<Integer, Integer> getStatistics(Map<Integer, Integer> statistics) {
+        for(PersonDTO person : persons){
+            statistics.put(person.getCandidateId(),
+                    statistics.getOrDefault(person.getCandidateId(), 0) + 1);
+        }
+        return statistics;
     }
 }
