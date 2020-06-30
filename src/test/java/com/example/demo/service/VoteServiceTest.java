@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static com.example.demo.helper.PersonDataFiller.fillPerson;
 import static org.junit.jupiter.api.Assertions.*;
 
 class VoteServiceTest {
@@ -29,11 +30,4 @@ class VoteServiceTest {
         assertTrue(voteService.getList().size() == 2);
     }
 
-    public static PersonDTO fillPerson (final int id, final String name, final int candidateId){
-        return PersonDTO.builder()
-                .id(id)
-                .fullName(name)
-                .candidateId(candidateId)
-                .build();
-    }
 }
